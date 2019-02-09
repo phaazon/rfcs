@@ -10,7 +10,7 @@
 > discussed on Reddit (/r/rust). Please comment and provide feedback so that the RFC can be
 > enhanced.
 >
-> Discussion happens [here]().
+> Discussion happens [here](https://www.reddit.com/r/rust/comments/aoxk14/prerfc_arbitraryrank_universal_quantification).
 
 This RFC brings *arbitrary-rank explicit universal quantification* to Rust (also known as the more
 popular [rank-N types]). Such quantification allows to create universally quantified functions at
