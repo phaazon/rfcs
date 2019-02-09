@@ -75,7 +75,7 @@ trait HasSlices {
 ```
 
 This kind of universal quantification gives you a contract that says that you will be able to
-traverse a `Foo: HasSlices` with a universally quantified function. But its argument arge also
+traverse a `Foo: HasSlices` with a universally quantified function. But its argument arg also
 universally quantified **at the same time**, with the same quantifier. What it means is that when
 you choose `F`, you also have to choose `T` for a call to `visit_slice` to be possible. Because of
 the method being monomorphized, if you want to call it in a recursive way, for instance, you will
