@@ -308,7 +308,28 @@ foo show -- = "Hello 21"
 # Unresolved questions
 [unresolved]: #unresolved-questions
 
-N/A, currently.
+## HRTBs and type language theory scares people
+
+We need to re-work the _How we teach that_ section so that it provides a deeper understanding to
+people who are not used to type language theory.
+
+## Ambiguity due to `where` clauses
+
+There are ambiguity with `where` clauses that requires a fix. Maybe parens?
+
+```rust
+fn foo<T, U>() where T: for<U, V> Fn() where V: Trait, U: Trait2;
+```
+
+Here, don’t know where `, U: Trait2` is quantified: is it in the first `where`? The second? Should
+the compiler try to be smart and find out by itself (it’s only, in this case, a syntaxic ambiguity,
+but semantics tell us how to resolve that if we forgive type variable shadowing).
+
+A possible solution would be to allow for parenthesis to resolve the ambiguity:
+
+```rust
+fn foo<T, U>() where T: (for<U, V> Fn() where V: Trait, U: Trait2);
+```
 
 [rank-N types]: https://wiki.haskell.org/Rank-N_types
 [HRTBs — Higher-Rank Trait Bounds]: https://doc.rust-lang.org/nomicon/hrtb.html
